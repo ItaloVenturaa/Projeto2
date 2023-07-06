@@ -89,9 +89,9 @@ function displayPosts() {
     deleteButton.onclick = (function (index) {
       return function () {
         deletePost(index);
+        abrirModalExcluir();
       };
     })(i);
-
 
     var editButton = document.createElement("button");
     editButton.textContent = "Editar";
@@ -236,8 +236,10 @@ function displayFilteredPosts(filteredPosts) {
     deleteButton.onclick = (function (index) {
       return function () {
         deletePost(index);
+        abrirModalExcluir();
       };
     })(i);
+
 
     var editButton = document.createElement("button");
     editButton.textContent = "Editar";
@@ -371,6 +373,18 @@ function abrirModal() {
     if (e.target.id === 'janela-modal' || e.target.id === 'fechar') {
       modal.classList.remove('abrir');
       localStorage.fechaModal = 'janela-modal';
+    }
+  });
+}
+
+function abrirModalExcluir()  {
+  const modal = document.getElementById('janela-modal-excluir');
+  modal.classList.add('abrir');
+
+  modal.addEventListener('click', (e) => {
+    if (e.target.id === 'janela-modal-excluir' || e.target.id === 'fechar') {
+      modal.classList.remove('abrir');
+      localStorage.fechaModal = 'janela-modal-excluir';
     }
   });
 }
