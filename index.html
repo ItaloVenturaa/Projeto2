@@ -78,7 +78,7 @@
   <section class="midia">
     <!-- Botão para fazer postagem -->
     <button id="togglePostFormButton" class="btnSubmitForm menu" onclick="togglePostForm()">Fazer Postagem</button>
-  
+
     <!-- Formulário de postagem -->
     <div class="newPost" id="postForm" style="display: none;">
       <input type="file" id="fileInput" class="EscolherArquivo" accept="image/*">
@@ -99,9 +99,16 @@
     <div id="confirmationMessage" class="message"></div>
   </section>
 
-  <br><br><br><br><br>
+  <br><br><br><br><br><br>
+  <br><br><br>
 
-  <br><br><br><br><br>
+  <div class="janela-modal" id="janela-modal">
+    <div class="modal">
+      <button class="fechar" id="fechar">X</button>
+      <h3>Alterações salvas com sucesso!</h3>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 

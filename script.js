@@ -88,10 +88,7 @@ function displayPosts() {
     deleteButton.classList.add("btn");
     deleteButton.onclick = (function (index) {
       return function () {
-        var confirmed = confirm("Tem certeza que deseja excluir este post?");
-        if (confirmed) {
-          deletePost(index);
-        }
+        deletePost(index);
       };
     })(i);
 
@@ -115,7 +112,7 @@ function displayPosts() {
 
     var editForm = document.createElement("form");
     editForm.className = "editForm";
-    editForm.innerHTML = ' <section class="about" id="about"><input type="text" class="editTitle" id="title" placeholder="Digite um novo título"><br><input type="text" id="caption" class="editCaption" placeholder="Digite uma nova legenda"><br><br><button type="submit" class="btn">Salvar</button><button type="button" class="cancelButton btn">Cancelar</button></section>';
+    editForm.innerHTML = ' <section class="about" id="about"><input type="text" class="editTitle" id="title" placeholder="Digite um novo título"><br><input type="text" id="caption" class="editCaption" placeholder="Digite uma nova legenda"><br><br><button type="submit" onclick="abrirModal()" class="btn">Salvar</button><button type="button" class="cancelButton btn">Cancelar</button></section>';
 
     postContainer.appendChild(img);
     postContainer.appendChild(postContent);
@@ -127,12 +124,9 @@ function displayPosts() {
 }
 
 function deletePost(index) {
-  var confirmed = confirm("Tem certeza que deseja excluir este post?");
-  if (confirmed) {
-    posts.splice(index, 1);
-    updatePostsInLocalStorage(); // Atualiza os posts no localStorage
-    displayPosts(); // Atualiza a exibição dos posts na página
-  }
+  posts.splice(index, 1);
+  updatePostsInLocalStorage(); // Atualiza os posts no localStorage
+  displayPosts(); // Atualiza a exibição dos posts na página
 }
 
 var confirmationMessageTimeout; // Variável global para armazenar o timeout
@@ -162,23 +156,16 @@ function editPost(index) {
     var newTitle = titleInput.value;
     var newCaption = captionInput.value;
     if (newTitle && newCaption) {
-      var confirmed = confirm("Tem certeza que deseja salvar as alterações?");
-      if (confirmed) {
-        posts[index].title = newTitle;
-        posts[index].caption = newCaption;
-        updatePostsInLocalStorage(); // Atualiza os posts no localStorage
-        displayPosts(); // Atualiza a exibição dos posts na página
-        postContent.style.display = "flex";
-        editForm.style.display = "none";
-
-        // Exibe mensagem de confirmação
-        displayErrorMessage("Alterações salvas com sucesso!");
-      }
-    } else {
-      displayErrorMessage("Por favor, preencha todos os campos.");
+      posts[index].title = newTitle;
+      posts[index].caption = newCaption;
+      updatePostsInLocalStorage(); // Atualiza os posts no localStorage
+      displayPosts(); // Atualiza a exibição dos posts na página
+      postContent.style.display = "flex";
+      editForm.style.display = "none";
     }
   };
 }
+
 
 // Função para exibir mensagem de erro ou  confirmação
 function displayErrorMessage(message) {
@@ -248,10 +235,7 @@ function displayFilteredPosts(filteredPosts) {
     deleteButton.classList.add("btn");
     deleteButton.onclick = (function (index) {
       return function () {
-        var confirmed = confirm("Tem certeza que deseja excluir este post?");
-        if (confirmed) {
-          deletePost(index);
-        }
+        deletePost(index);
       };
     })(i);
 
@@ -274,7 +258,7 @@ function displayFilteredPosts(filteredPosts) {
 
     var editForm = document.createElement("form");
     editForm.className = "editForm";
-    editForm.innerHTML = '<section class="about" id="about"><input type="text" class="editTitle" id="title" placeholder="Digite um novo título"><br><input type="text" id="caption" class="editCaption" placeholder="Digite uma nova legenda"><br><br><button type="submit" class="btn">Salvar</button><button type="button" class="cancelButton btn">Cancelar</button></section>';
+    editForm.innerHTML = '<section class="about" id="about"><input type="text" class="editTitle" id="title" placeholder="Digite um novo título"><br><input type="text" id="caption" class="editCaption" placeholder="Digite uma nova legenda"><br><br><button type="submit" onclick="abrirModal()" class="btn">Salvar</button><button type="button" class="cancelButton btn">Cancelar</button></section>';
 
     postContainer.appendChild(img);
     postContainer.appendChild(postContent);
@@ -377,4 +361,16 @@ function toggleSearch() {
     searchInput.style.display = "none";
     toggleButton.textContent = "Pesquisar";
   }
+}
+
+function abrirModal() {
+  const modal = document.getElementById('janela-modal');
+  modal.classList.add('abrir');
+
+  modal.addEventListener('click', (e) => {
+    if (e.target.id === 'janela-modal' || e.target.id === 'fechar') {
+      modal.classList.remove('abrir');
+      localStorage.fechaModal = 'janela-modal';
+    }
+  });
 }
