@@ -9,116 +9,100 @@
   <link rel="preconnect" type="text/css" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-
 </head>
-</body>
 
-<header>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="">
+    </div>
+    <ul>
+      <li> <a href="#"> MODELS </a> </li>
+      <li> <a href="#"> BEYOND </a> </li>
+      <li> <a href="#"> OWNERSHIP </a> </li>
+      <li> <a href="#"> MOTORSPORT </a> </li>
+      <li class="esquerda"> <a href="#"> DEALERSHIPS </a> </li>
+      <li> <a href="#"> MUSEUM </a> </li>
+      <li> <a href="#"> STORE </a> </li>
+    </ul>
+    <div class="button">
+      <img src="Dialogo.png" alt="">
+      <img src="lupa.png" alt="">
+      <img src="menu.png" alt="">
+    </div>
+  </header>
 
-  <div class="logo">
-    <img href="#" src="logo.png" alt="">
-  </div>
+  <section class="telainicial">
+    <div class="revuelto">1963-2023</div>
+    <h2>60TH <br>ANNIVERSARY</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hexagono">
+      <g stroke-width="1.4" transform="translate(-1624 -187.923)">
+        <path d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
+          transform="translate(1623.5 187.345)" class="hexagon on-dark"></path>
+        <path class="icon on-dark" d="M0 0l7.432 5.674L14.864 0" transform="rotate(-90 935.432 -711.068)"></path>
+      </g>
+    </svg>
+  </section>
 
-  <ul>
-    <li> <a href="#"> MODELS </a> </li>
-    <li> <a href="#"> BEYOND </a> </li>
-    <li> <a href="#"> OWNERSHIP </a> </li>
-    <li> <a href="#"> MOTORSPORT </a> </li>
-
-    <li class="esquerda"> <a href="#"> DEALERSHIPS </a> </li>
-    <li> <a href="#"> MUSEUM </a> </li>
-    <li> <a href="#"> STORE </a> </li>
-  </ul>
-  <div class="button">
-    <img href="#" src="Dialogo.png" alt="">
-    <img href="#" id="lupa" src="lupa.png" alt="">
-    <img href="#" src="menu.png" alt="">
-  </div>
-</header>
-
-<section class="telainicial">
-  <div class="revuelto">1963-2023</div>
-  <h2>60TH <BR>ANNIVERSARY</h2>
-  <svg xmlns="http://www.w3.org/2000/svg" class="hexagono">
-    <g stroke-width="1.4" transform="translate(-1624 -187.923)">
-      <path d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
-        transform="translate(1623.5 187.345)" class="hexagon on-dark"></path>
-      <path class="icon on-dark" d="M0 0l7.432 5.674L14.864 0" transform="rotate(-90 935.432 -711.068)"></path>
-    </g>
-  </svg>
-</section>
-<br>
-<section>
-  <div>
-    <h1>NEWS <br>LAMBORGHINI WORLD </h1>
-  </div>
-  <div class="about-news">
-  </div>
-
-</section>
-
-<br><br><br><br><br>
-
-<section class="about" id="about">
-  <div class="about-img">
-    <img src="emilia_donation_cover.png" alt="" class="imgteste">
-  </div>
-  <div class="about-text">
-    <h2>LAMBORGHINI SUPPORTS EMILIA-ROMAGNA</h2>
-    <a href="#" class="btn">READ MORE<i class='bx bxs-right-arrow'></i></a>
-  </div>
-</section>
-
-<br><br><br>
-
-<section class="about" id="about">
-  <div class="about-img">
-    <img src="cover_d.png" alt="" class="imgteste">
-  </div>
-  <div class="about-text">
-    <h2>LAMBORGHINI HURACÁN STERRATO: CALIFORNIA DRIFTING</h2>
-    <a href="#" class="btn">READ MORE<i class='bx bxs-right-arrow'></i></a>
-  </div>
-</section>
-
-
-
-<div class="fixo">
-  <samp>Fuel consumption and emission values of all vehicles promoted on this page*: Fuel consumption combined:
-    14,1-14,5 l/100km (WLTP); CO2-emissions combined: 320-328 g/km (WLTP); Under homologation: Revuelto</samp>
-</div>
-
-<br>
-
-<section class="midia">
-  <!-- Botão para fazer postagem -->
-  <button id="togglePostFormButton" class="btnSubmitForm menu" onclick="togglePostForm()">Fazer Postagem</button>
-
-  <!-- Formulário de postagem -->
-  <div class="newPost" id="postForm" style="display: none;">
-    <input type="file" id="fileInput" class="EscolherArquivo" accept="image/*">
-    <br>
-    <input type="text" id="title" class="btnSubmitForm" placeholder="Digite um título">
-    <br>
-    <textarea id="caption" rows="4" cols="50" placeholder="Digite uma legenda"></textarea>
-    <br>
-    <button id="postButton" class="btnSubmitForm" onclick="uploadPhoto()">Postar</button>
-  </div>
   <br>
-  <!-- Botão para realizar pesquisa -->
-  <button id="toggleSearchButton" class="btnSubmitForm menu" onclick="toggleSearch()">Pesquisar</button>
-  <!-- Campo de pesquisa -->
-  <input type="text" id="searchInput" placeholder="Pesquise" style="display: none;">
-  <div id="postList"></div>
-  <div id="errorMessage" class="dialog"></div>
-</section>
+
+  <section>
+    <div>
+      <h1>NEWS <br>LAMBORGHINI WORLD </h1>
+    </div>
+    <div class="about-news">
+    </div>
+  </section>
 
 
-<br><br><br><br><br>
+  <br><br><br>
 
-<br><br><br><br><br>
+  <section class="about" id="about">
+    <div class="about-img">
+      <img src="cover_d.png" alt="" class="imgteste">
+    </div>
+    <div class="about-text">
+      <h2>LAMBORGHINI HURACÁN STERRATO: CALIFORNIA DRIFTING</h2>
+      <a href="#" class="btn">READ MORE<i class='bx bxs-right-arrow'></i></a>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <div class="fixo">
+    <samp>Fuel consumption and emission values of all vehicles promoted on this page*: Fuel consumption combined:
+      14,1-14,5 l/100km (WLTP); CO2-emissions combined: 320-328 g/km (WLTP); Under homologation: Revuelto</samp>
+  </div>
+
+  <br>
+
+
+  <section class="midia">
+    <!-- Botão para fazer postagem -->
+    <button id="togglePostFormButton" class="btnSubmitForm menu" onclick="togglePostForm()">Fazer Postagem</button>
+  
+    <!-- Formulário de postagem -->
+    <div class="newPost" id="postForm" style="display: none;">
+      <input type="file" id="fileInput" class="EscolherArquivo" accept="image/*">
+      <br>
+      <input type="text" id="title" class="btnSubmitForm" placeholder="Digite um título">
+      <br>
+      <textarea id="caption" rows="4" cols="50" placeholder="Digite uma legenda"></textarea>
+      <br>
+      <button id="postButton" class="btnSubmitForm" onclick="addPost()">Postar</button>
+    </div>
+    <br>
+    <!-- Botão para realizar pesquisa -->
+    <button id="toggleSearchButton" class="btnSubmitForm menu" onclick="toggleSearch()">Pesquisar</button>
+    <!-- Campo de pesquisa -->
+    <input type="text" id="searchInput" placeholder="Pesquise" style="display: none;">
+    <div id="postList"></div>
+    <div id="errorMessage" class="dialog"></div>
+    <div id="confirmationMessage" class="message"></div>
+  </section>
+
+  <br><br><br><br><br>
+
+  <br><br><br><br><br>
+  <script src="script.js"></script>
 </body>
 
 </html>

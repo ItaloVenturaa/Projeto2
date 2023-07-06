@@ -9,7 +9,7 @@ window.addEventListener("scroll", function () {
 var posts = []; // Armazena as postagens
 var errorMessageTimeout;
 
-function uploadPhoto() {
+function addPost() {
   var fileInput = document.getElementById("fileInput");
   var titleInput = document.getElementById("title");
   var captionInput = document.getElementById("caption");
@@ -88,7 +88,10 @@ function displayPosts() {
     deleteButton.classList.add("btn");
     deleteButton.onclick = (function (index) {
       return function () {
-        deletePost(index);
+        var confirmed = confirm("Tem certeza que deseja excluir este post?");
+        if (confirmed) {
+          deletePost(index);
+        }
       };
     })(i);
 
@@ -123,12 +126,16 @@ function displayPosts() {
 
 }
 
-
 function deletePost(index) {
-  posts.splice(index, 1);
-  updatePostsInLocalStorage(); // Atualiza os posts no localStorage
-  displayPosts(); // Atualiza a exibição dos posts na página
+  var confirmed = confirm("Tem certeza que deseja excluir este post?");
+  if (confirmed) {
+    posts.splice(index, 1);
+    updatePostsInLocalStorage(); // Atualiza os posts no localStorage
+    displayPosts(); // Atualiza a exibição dos posts na página
+  }
 }
+
+var confirmationMessageTimeout; // Variável global para armazenar o timeout
 
 function editPost(index) {
   var postContainer = document.getElementById("postContainer_" + index);
@@ -155,18 +162,25 @@ function editPost(index) {
     var newTitle = titleInput.value;
     var newCaption = captionInput.value;
     if (newTitle && newCaption) {
-      posts[index].title = newTitle;
-      posts[index].caption = newCaption;
-      updatePostsInLocalStorage(); // Atualiza os posts no localStorage
-      displayPosts(); // Atualiza a exibição dos posts na página
-      postContent.style.display = "flex";
-      editForm.style.display = "none";
+      var confirmed = confirm("Tem certeza que deseja salvar as alterações?");
+      if (confirmed) {
+        posts[index].title = newTitle;
+        posts[index].caption = newCaption;
+        updatePostsInLocalStorage(); // Atualiza os posts no localStorage
+        displayPosts(); // Atualiza a exibição dos posts na página
+        postContent.style.display = "flex";
+        editForm.style.display = "none";
+
+        // Exibe mensagem de confirmação
+        displayErrorMessage("Alterações salvas com sucesso!");
+      }
+    } else {
+      displayErrorMessage("Por favor, preencha todos os campos.");
     }
   };
 }
 
-
-// Função para exibir mensagem de erro
+// Função para exibir mensagem de erro ou  confirmação
 function displayErrorMessage(message) {
   var errorMessage = document.getElementById("errorMessage");
 
@@ -234,7 +248,10 @@ function displayFilteredPosts(filteredPosts) {
     deleteButton.classList.add("btn");
     deleteButton.onclick = (function (index) {
       return function () {
-        deletePost(index);
+        var confirmed = confirm("Tem certeza que deseja excluir este post?");
+        if (confirmed) {
+          deletePost(index);
+        }
       };
     })(i);
 
@@ -287,11 +304,6 @@ function searchPosts() {
     displayErrorMessage("Nenhum resultado encontrado.");
   }
 }
-
-// Restante do código...
-
-
-
 
 // Função para marcar o conteúdo encontrado
 function markContent(element, searchText) {
